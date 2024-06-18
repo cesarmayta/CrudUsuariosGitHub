@@ -1,14 +1,13 @@
-﻿namespace CrudUsuariosGitHub.Models
+﻿using CrudUsuariosGitHub.Utils;
+
+namespace CrudUsuariosGitHub.Models
 {
     class Program
     {
         static void Main()
         {
-            Usuario usuario = new Usuario("josevega");
-            UsuarioCRUD crud = new UsuarioCRUD();
-            crud.MostrarUsuarios();
-            crud.RegistrarUsuario();
-            crud.MostrarUsuarios();
+           UsuarioUI usuarioUI = new UsuarioUI();
+            usuarioUI.MostrarMenu();
         }
     }
 }
