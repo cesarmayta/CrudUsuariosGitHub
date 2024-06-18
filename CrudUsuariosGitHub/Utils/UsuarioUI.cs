@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -44,6 +45,12 @@ namespace CrudUsuariosGitHub.Utils
                         crud.MostrarUsuarios();
                         Console.WriteLine("PRESION UNA TECLA PARA CONTINUAR...");
                         Console.ReadKey();
+                        break;
+                    case 3:
+                        crud.ActualizarUsuario();
+                        break;
+                    case 4:
+                        crud.EliminarUsuario();
                         break;
                 }
             }

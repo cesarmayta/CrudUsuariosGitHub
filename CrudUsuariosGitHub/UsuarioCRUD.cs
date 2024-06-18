@@ -52,5 +52,57 @@ namespace CrudUsuariosGitHub
             this.mensajeUI.mostrarMensaje("ALUMNO REGISTRADO CON EXITO !!");
 
         }
+
+        private Usuario BuscarUsuario(string opcion)
+        {
+            mensajeUI.mostrarTitulo($" {opcion} USUARIO");
+            Console.WriteLine($"INGRESE EL USUARIO A {opcion} : ");
+            string usuarioBusqueda = Console.ReadLine();
+
+            Usuario usuario = listaUsuarios.Find(a => a.Username.Equals(usuarioBusqueda, StringComparison.OrdinalIgnoreCase));
+            return usuario;
+        }
+
+        public void ActualizarUsuario()
+        {
+            Usuario usuario = this.BuscarUsuario("ACTUALIZAR");
+            if(usuario != null)
+            {
+                Console.WriteLine("NUEVO EMAIL : ");
+                string nuevoEmail = Console.ReadLine();
+                Console.WriteLine("NUEVA FOTO : ");
+                string nuevaFoto = Console.ReadLine();
+                Console.WriteLine("NUEVA BIOGRAFIA : ");
+                string nuevaBio = Console.ReadLine();
+                Console.WriteLine("NUEVA URL : ");
+                string nuevaUrl = Console.ReadLine();
+
+                usuario.Email = nuevoEmail;
+                usuario.Biografia = nuevaBio;
+                usuario.Foto = nuevaFoto;
+                usuario.Url = nuevaUrl;
+
+                this.mensajeUI.mostrarMensaje("USUARIO ACTUALIZADO CON EXITO !!!");
+
+            }
+            else
+            {
+                this.mensajeUI.mostrarMensaje("USUARIO NO ENCONTRADO...");
+            }
+        }
+
+        public void EliminarUsuario()
+        {
+            Usuario usuarioEliminar = this.BuscarUsuario("ELIMINAR");
+            if(usuarioEliminar != null)
+            {
+                listaUsuarios.Remove(usuarioEliminar);
+                this.mensajeUI.mostrarMensaje("ALUMNO ELIMINADO CON EXITO.");
+            }
+            else
+            {
+                this.mensajeUI.mostrarMensaje("NO SE ENCONTRO EL USUARIO ...");
+            }
+        }
     }
 }
