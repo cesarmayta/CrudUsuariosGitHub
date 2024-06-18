@@ -30,6 +30,7 @@ namespace CrudUsuariosGitHub.Models
         {
             Console.WriteLine($"USUARIO : {this.username}");
             Console.WriteLine($"EMAIL : {this.email}");
+            Console.WriteLine($"FOTO : {this.foto}");
             Console.WriteLine($"BIOGRAFIA : {this.biografia}");
             Console.WriteLine($"URL : {this.url}");
         }
